@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "903115413860",
+    "project_id": "wastetrack-f699e",
+    "storage_bucket": "wastetrack-f699e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:903115413860:android:89ecb9a2dbac2f6eb8c271",
+        "android_client_info": {
+          "package_name": "edu.oregonstate.changkev.wastetrack"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "903115413860-478se5asfgna6q7ustgapmo7cha8pgq0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtOeEzaTmlwyk1JjgRXgyGEn9yjt1jwqQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "903115413860-478se5asfgna6q7ustgapmo7cha8pgq0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
