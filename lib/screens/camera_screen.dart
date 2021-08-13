@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:intl/intl.dart';
 
 class CameraScreen extends StatefulWidget {
   @override
@@ -34,8 +35,7 @@ class _CameraScreenState extends State<CameraScreen> {
     return StreamBuilder(
         stream: FirebaseFirestore.instance.collection('posts').snapshots(),
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
-          if (snapshot.hasData &&
-              snapshot.data!.docs.length > 0) {
+          if (snapshot.hasData && snapshot.data!.docs.length > 0) {
             return Column(
               children: [
                 Expanded(
@@ -44,8 +44,8 @@ class _CameraScreenState extends State<CameraScreen> {
                     itemBuilder: (context, index) {
                       var post = snapshot.data!.docs[index];
                       return ListTile(
-                          leading: Text(post['weight'].toString()),
-                          title: Text(post['title']));
+                          title: Text(post['name']),
+                          subtitle: Text(post['num_of_items'].toString()));
                     },
                   ),
                 ),
@@ -75,10 +75,10 @@ class _CameraScreenState extends State<CameraScreen> {
 
   void uploadData() async {
     final url = await getImage();
-    final weight = DateTime.now().millisecondsSinceEpoch % 1000;
-    final title = 'Title ' + weight.toString();
+    final date = DateTime.now();
+    final name = DateFormat.yMMMMEEEEd().format(date);
     FirebaseFirestore.instance
         .collection('posts')
-        .add({'weight': weight, 'title': title, 'url': url});
+        .add({'date': date, 'name': name, 'url': url});
   }
 }
