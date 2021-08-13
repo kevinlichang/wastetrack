@@ -4,8 +4,8 @@ class FoodWastePost {
   Timestamp? date;
   String? imageURL;
   int? quantity;
-  String? latitude;
-  String? longitude;
+  double? latitude;
+  double? longitude;
 
   FoodWastePost(
       {this.date, this.imageURL, this.quantity, this.latitude, this.longitude});

@@ -28,8 +28,8 @@ class _NewPostScreenState extends State<NewPostScreen> {
     _controller = TextEditingController(text: '1');
     retrieveLocation();
     post.quantity = 1;
-    post.latitude = '40.7541';
-    post.longitude = '-73.9850';
+    post.latitude = 40.7541;
+    post.longitude = -73.9850;
   }
 
   void retrieveLocation() async {
