@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'screens/entry_lists.dart';
+import 'screens/entry_lists_screen.dart';
 
 class App extends StatelessWidget {
   final String title;
@@ -11,7 +11,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       title: title,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.indigo,
       ),
       home: EntryListsScreen(),
     );

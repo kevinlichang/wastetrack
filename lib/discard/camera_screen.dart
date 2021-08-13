@@ -18,18 +18,6 @@ class _CameraScreenState extends State<CameraScreen> {
 * Pick an image from the gallery, upload it to Firebase Storage and return 
 * the URL of the image in Firebase Storage.
 */
-  Future getImage() async {
-    final pickedFile = await picker.pickImage(source: ImageSource.gallery);
-    image = File(pickedFile!.path);
-
-    var fileName = DateTime.now().toString() + '.jpg';
-    Reference storageReference = FirebaseStorage.instance.ref().child(fileName);
-    UploadTask uploadTask = storageReference.putFile(image!);
-    await uploadTask;
-    final url = await storageReference.getDownloadURL();
-    return url;
-  }
-
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
@@ -81,4 +69,17 @@ class _CameraScreenState extends State<CameraScreen> {
         .collection('posts')
         .add({'date': date, 'name': name, 'url': url});
   }
+
+  Future getImage() async {
+    final pickedFile = await picker.pickImage(source: ImageSource.gallery);
+    image = File(pickedFile!.path);
+
+    var fileName = DateTime.now().toString() + '.jpg';
+    Reference storageReference = FirebaseStorage.instance.ref().child(fileName);
+    UploadTask uploadTask = storageReference.putFile(image!);
+    await uploadTask;
+    final url = await storageReference.getDownloadURL();
+    return url;
+  }
+
 }
