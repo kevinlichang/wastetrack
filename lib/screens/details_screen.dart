@@ -33,7 +33,7 @@ class DetailsScreen extends StatelessWidget {
             Padding(
               padding: EdgeInsets.symmetric(vertical: 10),
               child: Text(
-                'Location: (${post.latitude}, ${post.longitude})',
+                'Location: ${post.getCoordinates()}',
                 style: Theme.of(context).textTheme.headline6,
               ),
             )

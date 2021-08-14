@@ -13,4 +13,20 @@ class FoodWastePost {
   String toString() {
     return 'date: $date, imageURL:$imageURL, quantity: $quantity, latitude: $latitude, longitude: $longitude';
   }
+
+  void fromMap(Map map) {
+    date = map['date'];
+    imageURL = map['imageURL'];
+    quantity = map['quantity'];
+    latitude = map['latitude'];
+    longitude = map['longitude'];
+  }
+
+  DateTime convertDatetoDateTime() {
+    return date!.toDate();
+  }
+
+  String getCoordinates() {
+    return '($latitude, $longitude)';
+  }
 }
