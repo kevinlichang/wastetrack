@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:wastetrack/app.dart';
 import 'package:wastetrack/models/food_waste_post.dart';
 
 class DetailsScreen extends StatelessWidget {

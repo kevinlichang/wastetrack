@@ -40,8 +40,9 @@ class _EntryListsScreenState extends State<EntryListsScreen> {
                   return ListTile(
                     title: Text(
                       DateFormat.yMMMEd().format(post.date!.toDate()),
+                      style: Theme.of(context).textTheme.headline6,
                     ),
-                    trailing: Text(post.quantity.toString()),
+                    trailing: Text(post.quantity.toString(), style: Theme.of(context).textTheme.headline4),
                     onTap: () => Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -57,8 +58,15 @@ class _EntryListsScreenState extends State<EntryListsScreen> {
           }
         },
       ),
-      floatingActionButton: AddNewPostButton(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: Semantics(
+        child: AddNewPostButton(),
+        button: true,
+        enabled: true,
+        onTapHint: 'Select an image from gallery for a new post',
+      )
+      
+      
     );
   }
 }

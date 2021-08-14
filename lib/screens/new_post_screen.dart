@@ -91,18 +91,23 @@ class _NewPostScreenState extends State<NewPostScreen> {
           Row(
             children: [
               Expanded(
-                child: ElevatedButton(
-                  child: Icon(Icons.cloud_upload_outlined),
-                  onPressed: () {
-                    if (!_emptyField) {
-                      uploadData();
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => EntryListsScreen()),
-                      );
-                    }
-                  },
+                child: Semantics(
+                  child:  ElevatedButton(
+                    child: Icon(Icons.cloud_upload_outlined),
+                    onPressed: () {
+                      if (!_emptyField) {
+                        uploadData();
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => EntryListsScreen()),
+                        );
+                      }
+                    },
+                  ),
+                  button: true,
+                  enabled: true,
+                  onTapHint: 'Upload a new Food Waste Post',
                 ),
               )
             ],
